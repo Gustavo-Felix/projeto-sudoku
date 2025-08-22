@@ -27,7 +27,7 @@ public class Board {
         return spaces.stream().flatMap(Collection::stream).anyMatch(s -> isNull(s.getActual())) ? INCOMPLETE : COMPLETE;
     }
 
-    public boolean hasError() {
+    public boolean hasErrors() {
         if (getStatus() == NON_STARTED) {
             return false;
         }
@@ -60,7 +60,7 @@ public class Board {
     }
 
     public boolean gameIsFinished(){
-        return !hasError() && getStatus().equals(COMPLETE);
+        return !hasErrors() && getStatus().equals(COMPLETE);
     }
 
 }
